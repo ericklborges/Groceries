@@ -13,6 +13,8 @@
 		60B8AD7820224B7900D37E0A /* Groceries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60B8AD7620224B7900D37E0A /* Groceries.xcdatamodeld */; };
 		60B8AD7A20224B7900D37E0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60B8AD7920224B7900D37E0A /* Assets.xcassets */; };
 		60B8AD7D20224B7900D37E0A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60B8AD7B20224B7900D37E0A /* LaunchScreen.storyboard */; };
+		60B8AD8520224D5200D37E0A /* GroceriesListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8AD8420224D5200D37E0A /* GroceriesListTableViewController.swift */; };
+		60B8AD8720224D6200D37E0A /* GroceriesListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8AD8620224D6200D37E0A /* GroceriesListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		60B8AD7920224B7900D37E0A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60B8AD7C20224B7900D37E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60B8AD7E20224B7900D37E0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60B8AD8420224D5200D37E0A /* GroceriesListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesListTableViewController.swift; sourceTree = "<group>"; };
+		60B8AD8620224D6200D37E0A /* GroceriesListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				60B8AD6F20224B7900D37E0A /* AppDelegate.swift */,
 				60B8AD7120224B7900D37E0A /* ViewController.swift */,
 				60B8AD7320224B7900D37E0A /* Main.storyboard */,
+				60B8AD8420224D5200D37E0A /* GroceriesListTableViewController.swift */,
+				60B8AD8620224D6200D37E0A /* GroceriesListTableViewCell.swift */,
 				60B8AD7920224B7900D37E0A /* Assets.xcassets */,
 				60B8AD7B20224B7900D37E0A /* LaunchScreen.storyboard */,
 				60B8AD7E20224B7900D37E0A /* Info.plist */,
@@ -142,6 +148,8 @@
 				60B8AD7820224B7900D37E0A /* Groceries.xcdatamodeld in Sources */,
 				60B8AD7220224B7900D37E0A /* ViewController.swift in Sources */,
 				60B8AD7020224B7900D37E0A /* AppDelegate.swift in Sources */,
+				60B8AD8520224D5200D37E0A /* GroceriesListTableViewController.swift in Sources */,
+				60B8AD8720224D6200D37E0A /* GroceriesListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
