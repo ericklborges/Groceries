@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="Eov-PP-fXe" customClass="GroceriesListTableViewCell" customModule="Groceries" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="Eov-PP-fXe" customClass="GroceriesWidgetListTableViewCell" customModule="GroceriesWidget" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eov-PP-fXe" id="9UO-yQ-p4w">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-gz-HCo">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-gz-HCo">
                                             <rect key="frame" x="16" y="4" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="DVh-gz-HCo" secondAttribute="height" multiplier="1:1" id="2zN-aJ-5kv"/>
@@ -36,7 +36,7 @@
                                             <state key="normal" image="Uncheck"/>
                                             <state key="selected" image="Check"/>
                                             <connections>
-                                                <action selector="checkButtonAction:" destination="Eov-PP-fXe" eventType="touchUpInside" id="CNL-N3-7dp"/>
+                                                <action selector="checkButtonAction:" destination="Eov-PP-fXe" eventType="touchUpInside" id="oNb-o0-ztL"/>
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVs-sa-Gg1">
@@ -57,8 +57,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="outletCheckButton" destination="DVh-gz-HCo" id="By0-za-MlQ"/>
-                                    <outlet property="outletItemNameLabel" destination="sVs-sa-Gg1" id="4Jz-dU-jWz"/>
+                                    <outlet property="outletCheckButton" destination="DVh-gz-HCo" id="3Xn-qc-dRI"/>
+                                    <outlet property="outletItemNameLabel" destination="sVs-sa-Gg1" id="6lK-c3-qBs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

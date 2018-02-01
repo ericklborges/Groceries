@@ -40,7 +40,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! GroceriesListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! GroceriesWidgetListTableViewCell
         
         cell.outletItemNameLabel.text = items[indexPath.row].name
         cell.outletCheckButton.isSelected = items[indexPath.row].isDone
@@ -49,6 +49,9 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.extensionContext?.open(URL(string: "Groceries://")!, completionHandler: nil)
+    }
     
     
 }

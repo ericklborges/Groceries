@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class GroceriesListTableViewController: UITableViewController {
 
@@ -22,43 +23,50 @@ class GroceriesListTableViewController: UITableViewController {
         
         // Add an edit button in the left of Navigation Controller
         self.navigationItem.leftBarButtonItem = self.editButtonItem
+        
+        // Update datasource fetching from CoreData
+        self.updateDatasource()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    func updateDatasource(){
         // Fetch the Itens in Core Data and reload table view
+        var stringOpt : String?
+        stringOpt = "weightCache"
+        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: nil)
         self.items = DAOItem.sharedInstance.fetchItems()
         self.tableView.reloadData()
     }
     
     //MARK: - IBActions
     @IBAction func addItem(_ sender: Any) {
-        let alert = UIAlertController(title: "New Item",
-                                      message: nil,
-                                      preferredStyle: .alert)
-        
-        let save = UIAlertAction(title: "Save",
-                                       style: .default) {
-                                        [unowned self] action in
-                                        
-                                        guard let textField = alert.textFields?.first,
-                                            let itemToSave = textField.text else {
-                                                return
-                                        }
-                                        
-                                        DAOItem.sharedInstance.addItem(withName: itemToSave)
-                                        self.items = DAOItem.sharedInstance.fetchItems()
-                                        self.tableView.reloadData()
-        }
-        
-        let cancel = UIAlertAction(title: "Cancel",
-                                         style: .cancel)
-        
-        alert.addTextField()
-        
-        alert.addAction(cancel)
-        alert.addAction(save)
-        
-        present(alert, animated: true)
+        self.updateDatasource()
+//        let alert = UIAlertController(title: "New Item",
+//                                      message: nil,
+//                                      preferredStyle: .alert)
+//
+//        let save = UIAlertAction(title: "Save",
+//                                       style: .default) {
+//                                        [unowned self] action in
+//
+//                                        guard let textField = alert.textFields?.first,
+//                                            let itemToSave = textField.text else {
+//                                                return
+//                                        }
+//
+//                                        DAOItem.sharedInstance.addItem(withName: itemToSave)
+//                                        self.items = DAOItem.sharedInstance.fetchItems()
+//                                        self.tableView.reloadData()
+//        }
+//
+//        let cancel = UIAlertAction(title: "Cancel",
+//                                         style: .cancel)
+//
+//        alert.addTextField()
+//
+//        alert.addAction(cancel)
+//        alert.addAction(save)
+//
+//        present(alert, animated: true)
     }
     
     // MARK: - Table view data source
@@ -99,18 +107,4 @@ class GroceriesListTableViewController: UITableViewController {
         }    
     }
     
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 }

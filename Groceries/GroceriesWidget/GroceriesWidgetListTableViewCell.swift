@@ -8,8 +8,8 @@
 
 import UIKit
 
-class GroceriesListTableViewCell: UITableViewCell {
-
+class GroceriesWidgetListTableViewCell: UITableViewCell {
+    
     var item: Item!
     @IBOutlet weak var outletItemNameLabel: UILabel!
     @IBOutlet weak var outletCheckButton: UIButton!
