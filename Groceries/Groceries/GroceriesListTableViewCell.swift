@@ -10,10 +10,13 @@ import UIKit
 
 class GroceriesListTableViewCell: UITableViewCell {
 
+    var item: Item!
     @IBOutlet weak var outletItemNameLabel: UILabel!
+    @IBOutlet weak var outletCheckButton: UIButton!
     
     @IBAction func checkButtonAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        DAOItem.sharedInstance.updateCheck(to: sender.isSelected, on: item)
     }
     
 }
