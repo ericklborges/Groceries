@@ -20,14 +20,15 @@ class GroceriesListTableViewController: UITableViewController {
         // Navigation With Large Text
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        // Fetch the Itens in Core Data and reload table view
-        self.items = DAOItem.sharedInstance.fetchItems()
-        self.tableView.reloadData()
-        
         // Add an edit button in the left of Navigation Controller
         self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        // Fetch the Itens in Core Data and reload table view
+        self.items = DAOItem.sharedInstance.fetchItems()
+        self.tableView.reloadData()
+    }
     
     //MARK: - IBActions
     @IBAction func addItem(_ sender: Any) {

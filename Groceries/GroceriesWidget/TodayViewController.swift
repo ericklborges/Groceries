@@ -15,7 +15,10 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view from its nib.
+        
+        // Fetch the Itens in Core Data and reload table view
+        self.items = DAOItem.sharedInstance.fetchItems()
+        self.tableView.reloadData()
     }
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
@@ -33,14 +36,15 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! GroceriesListTableViewCell
         
-        cell.outletItemNameLabel.text = "teste"
-        cell.outletCheckButton.isSelected = false
+        cell.outletItemNameLabel.text = items[indexPath.row].name
+        cell.outletCheckButton.isSelected = items[indexPath.row].isDone
+        cell.item = items[indexPath.row]
         
         return cell
     }

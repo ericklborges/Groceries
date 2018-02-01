@@ -16,7 +16,7 @@ class GroceriesListTableViewCell: UITableViewCell {
     
     @IBAction func checkButtonAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-//        DAOItem.sharedInstance.updateCheck(to: sender.isSelected, on: item)
+        DAOItem.sharedInstance.updateCheck(to: sender.isSelected, on: item)
     }
     
 }
