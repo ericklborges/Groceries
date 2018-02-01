@@ -61,6 +61,8 @@
 		6040174C2023373B006A2DB0 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		6040174F2023373B006A2DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		604017512023373B006A2DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6040176220233D5B006A2DB0 /* Groceries.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Groceries.entitlements; sourceTree = "<group>"; };
+		6040176320233D73006A2DB0 /* GroceriesWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GroceriesWidget.entitlements; sourceTree = "<group>"; };
 		60B8AD6C20224B7900D37E0A /* Groceries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Groceries.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B8AD6F20224B7900D37E0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60B8AD7420224B7900D37E0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		6040174B2023373B006A2DB0 /* GroceriesWidget */ = {
 			isa = PBXGroup;
 			children = (
+				6040176320233D73006A2DB0 /* GroceriesWidget.entitlements */,
 				6040174C2023373B006A2DB0 /* TodayViewController.swift */,
 				6040174E2023373B006A2DB0 /* MainInterface.storyboard */,
 				604017512023373B006A2DB0 /* Info.plist */,
@@ -135,6 +138,7 @@
 		60B8AD6E20224B7900D37E0A /* Groceries */ = {
 			isa = PBXGroup;
 			children = (
+				6040176220233D5B006A2DB0 /* Groceries.entitlements */,
 				60B8AD6F20224B7900D37E0A /* AppDelegate.swift */,
 				A3AD85452022D29300E28B0E /* Storyboards */,
 				A3AD85432022D27D00E28B0E /* Controllers */,
@@ -243,10 +247,20 @@
 					604017462023373B006A2DB0 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					60B8AD6B20224B7900D37E0A = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -362,6 +376,7 @@
 		604017562023373B006A2DB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GroceriesWidget/GroceriesWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ3JBWEJT5;
 				INFOPLIST_FILE = GroceriesWidget/Info.plist;
@@ -377,6 +392,7 @@
 		604017572023373B006A2DB0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = GroceriesWidget/GroceriesWidget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ3JBWEJT5;
 				INFOPLIST_FILE = GroceriesWidget/Info.plist;
@@ -501,6 +517,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Groceries/Groceries.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ3JBWEJT5;
 				INFOPLIST_FILE = Groceries/Info.plist;
@@ -517,6 +534,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Groceries/Groceries.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HJ3JBWEJT5;
 				INFOPLIST_FILE = Groceries/Info.plist;
