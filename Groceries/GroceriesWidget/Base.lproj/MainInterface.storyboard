@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M4Y-Lb-cyx">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today View Controller-->
+        <scene sceneID="cwh-vc-ff4">
+            <objects>
+                <viewController id="M4Y-Lb-cyx" customClass="TodayViewController" customModule="GroceriesWidget" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TCG-dN-5fw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" id="Eov-PP-fXe" customClass="GroceriesListTableViewCell" customModule="Groceries" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Eov-PP-fXe" id="9UO-yQ-p4w">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DVh-gz-HCo">
+                                            <rect key="frame" x="16" y="4" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="DVh-gz-HCo" secondAttribute="height" multiplier="1:1" id="2zN-aJ-5kv"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="JOO-5e-Iwo"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="wMR-xC-iFN"/>
+                                            </constraints>
+                                            <state key="normal" image="Uncheck"/>
+                                            <state key="selected" image="Check"/>
+                                            <connections>
+                                                <action selector="checkButtonAction:" destination="Eov-PP-fXe" eventType="touchUpInside" id="CNL-N3-7dp"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVs-sa-Gg1">
+                                            <rect key="frame" x="65" y="6" width="239" height="38"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="sVs-sa-Gg1" secondAttribute="trailing" constant="16" id="1bN-FL-Of8"/>
+                                        <constraint firstItem="sVs-sa-Gg1" firstAttribute="leading" secondItem="DVh-gz-HCo" secondAttribute="trailing" constant="9" id="QDd-JX-gAr"/>
+                                        <constraint firstAttribute="bottom" secondItem="sVs-sa-Gg1" secondAttribute="bottom" constant="6" id="VoS-3G-Q72"/>
+                                        <constraint firstItem="DVh-gz-HCo" firstAttribute="top" secondItem="9UO-yQ-p4w" secondAttribute="top" constant="4" id="X3K-WO-ATX"/>
+                                        <constraint firstItem="sVs-sa-Gg1" firstAttribute="top" secondItem="9UO-yQ-p4w" secondAttribute="top" constant="6" id="hqT-3O-czP"/>
+                                        <constraint firstAttribute="bottom" secondItem="DVh-gz-HCo" secondAttribute="bottom" constant="5.5" id="jeW-8X-n6O"/>
+                                        <constraint firstItem="DVh-gz-HCo" firstAttribute="leading" secondItem="9UO-yQ-p4w" secondAttribute="leading" constant="16" id="uEf-qx-vgw"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="outletCheckButton" destination="DVh-gz-HCo" id="By0-za-MlQ"/>
+                                    <outlet property="outletItemNameLabel" destination="sVs-sa-Gg1" id="4Jz-dU-jWz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="M4Y-Lb-cyx" id="NdR-3B-4jM"/>
+                            <outlet property="delegate" destination="M4Y-Lb-cyx" id="DLi-y2-b5V"/>
+                        </connections>
+                    </tableView>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="320"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-125" y="32"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Check" width="94" height="94"/>
+        <image name="Uncheck" width="94" height="94"/>
+    </resources>
+</document>
