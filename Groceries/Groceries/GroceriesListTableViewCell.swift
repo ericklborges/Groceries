@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 class GroceriesListTableViewCell: UITableViewCell {
 
@@ -17,8 +18,6 @@ class GroceriesListTableViewCell: UITableViewCell {
     @IBAction func checkButtonAction(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         DAOItem.sharedInstance.updateCheck(to: sender.isSelected, on: item)
-        let items = DAOItem.sharedInstance.fetchItems()
-        print(items)
     }
     
 }

@@ -11,26 +11,32 @@ import NotificationCenter
 
 class TodayViewController: UITableViewController, NCWidgetProviding {
     
+    //MARK: - Properties
     var items = [Item]()
     
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set dinamic heigt for width
+        self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         // Fetch the Itens in Core Data and reload table view
-        self.items = DAOItem.sharedInstance.fetchItems()
-        self.tableView.reloadData()
+        updateDatasource()
+        // Notification observer to update when oppened
+        NotificationCenter.default.addObserver(self, selector: #selector(updateDatasource), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
+        
     }
     
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Perform any setup necessary in order to update the view.
-        
-        // If an error is encountered, use NCUpdateResult.Failed
-        // If there's no update required, use NCUpdateResult.NoData
-        // If there's an update, use NCUpdateResult.NewData
-        
-        completionHandler(NCUpdateResult.newData)
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .expanded {
+            let width = self.view.frame.width
+            preferredContentSize = CGSize(width: width, height: width)
+        } else {
+            preferredContentSize = maxSize
+        }
     }
     
+    //MARK: - DataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -40,7 +46,7 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! GroceriesWidgetListTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! GroceriesListTableViewCell
         
         cell.outletItemNameLabel.text = items[indexPath.row].name
         cell.outletCheckButton.isSelected = items[indexPath.row].isDone
@@ -49,8 +55,20 @@ class TodayViewController: UITableViewController, NCWidgetProviding {
         return cell
     }
     
+    //MARK: - Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.extensionContext?.open(URL(string: "Groceries://")!, completionHandler: nil)
+    }
+    
+    //MARK: - Methods
+    @objc
+    func updateDatasource(){
+        // Fetch the Itens in Core Data and reload table view
+        self.items = DAOItem.sharedInstance.fetchItems()
+        self.items = self.items.filter { (item) -> Bool in
+            return !item.isDone
+        }
+        self.tableView.reloadData()
     }
     
     

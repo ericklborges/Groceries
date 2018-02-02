@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		603D04EC20237A050081C91D /* GroceriesWidgetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D04EB20237A050081C91D /* GroceriesWidgetListTableViewCell.swift */; };
+		6002441B20239B8300E69470 /* SLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002441A20239B8300E69470 /* SLManager.swift */; };
+		6002441C20239BF100E69470 /* SLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6002441A20239B8300E69470 /* SLManager.swift */; };
 		603D04ED20237AE40081C91D /* Groceries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60B8AD7620224B7900D37E0A /* Groceries.xcdatamodeld */; };
 		603D04EE20237AE50081C91D /* Groceries.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60B8AD7620224B7900D37E0A /* Groceries.xcdatamodeld */; };
-		603D04EF20237BC60081C91D /* GroceriesWidgetListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 603D04EB20237A050081C91D /* GroceriesWidgetListTableViewCell.swift */; };
 		6040174A2023373B006A2DB0 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 604017492023373B006A2DB0 /* NotificationCenter.framework */; };
 		6040174D2023373B006A2DB0 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6040174C2023373B006A2DB0 /* TodayViewController.swift */; };
 		604017502023373B006A2DB0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6040174E2023373B006A2DB0 /* MainInterface.storyboard */; };
@@ -58,7 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		603D04EB20237A050081C91D /* GroceriesWidgetListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceriesWidgetListTableViewCell.swift; sourceTree = "<group>"; };
+		6002441A20239B8300E69470 /* SLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SLManager.swift; sourceTree = "<group>"; };
 		604017472023373B006A2DB0 /* GroceriesWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GroceriesWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		604017492023373B006A2DB0 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		6040174C2023373B006A2DB0 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -112,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				6040176320233D73006A2DB0 /* GroceriesWidget.entitlements */,
-				603D04EB20237A050081C91D /* GroceriesWidgetListTableViewCell.swift */,
 				6040174C2023373B006A2DB0 /* TodayViewController.swift */,
 				6040174E2023373B006A2DB0 /* MainInterface.storyboard */,
 				604017512023373B006A2DB0 /* Info.plist */,
@@ -159,8 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				A3AD85422022D26B00E28B0E /* Entity */,
-				A3AD853C2022B3C100E28B0E /* DataManager.swift */,
+				6002441A20239B8300E69470 /* SLManager.swift */,
 				A3AD853E2022B52800E28B0E /* DAOItem.swift */,
+				A3AD853C2022B3C100E28B0E /* DataManager.swift */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -321,7 +321,7 @@
 				6040174D2023373B006A2DB0 /* TodayViewController.swift in Sources */,
 				6040175A202337EA006A2DB0 /* DataManager.swift in Sources */,
 				6040175B202337EA006A2DB0 /* DAOItem.swift in Sources */,
-				603D04EC20237A050081C91D /* GroceriesWidgetListTableViewCell.swift in Sources */,
+				6002441C20239BF100E69470 /* SLManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,11 +330,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3AD853A2022B38600E28B0E /* Item+CoreDataProperties.swift in Sources */,
-				603D04EF20237BC60081C91D /* GroceriesWidgetListTableViewCell.swift in Sources */,
 				603D04EE20237AE50081C91D /* Groceries.xcdatamodeld in Sources */,
 				A3AD853D2022B3C100E28B0E /* DataManager.swift in Sources */,
 				A3AD85392022B38600E28B0E /* Item+CoreDataClass.swift in Sources */,
 				A3AD853F2022B52800E28B0E /* DAOItem.swift in Sources */,
+				6002441B20239B8300E69470 /* SLManager.swift in Sources */,
 				60B8AD7020224B7900D37E0A /* AppDelegate.swift in Sources */,
 				60B8AD8520224D5200D37E0A /* GroceriesListTableViewController.swift in Sources */,
 				60B8AD8720224D6200D37E0A /* GroceriesListTableViewCell.swift in Sources */,

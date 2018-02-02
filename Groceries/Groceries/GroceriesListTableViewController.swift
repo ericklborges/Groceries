@@ -8,68 +8,26 @@
 
 import UIKit
 import CoreData
+import CoreSpotlight
+import MobileCoreServices
 
-class GroceriesListTableViewController: UITableViewController {
+class GroceriesListTableViewController: UITableViewController{
 
     
-    //MARK: - Class Properties
+    //MARK: - Properties
     var items: [Item] = [Item]()
     
-    //MARK: - UITableViewController Life Cycle
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Navigation With Large Text
+
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        // Add an edit button in the left of Navigation Controller
         self.navigationItem.leftBarButtonItem = self.editButtonItem
-        
         // Update datasource fetching from CoreData
         self.updateDatasource()
     }
     
-    func updateDatasource(){
-        // Fetch the Itens in Core Data and reload table view
-        var stringOpt : String?
-        stringOpt = "weightCache"
-        NSFetchedResultsController<NSFetchRequestResult>.deleteCache(withName: nil)
-        self.items = DAOItem.sharedInstance.fetchItems()
-        self.tableView.reloadData()
-    }
-    
-    //MARK: - IBActions
-    @IBAction func addItem(_ sender: Any) {
-        self.updateDatasource()
-//        let alert = UIAlertController(title: "New Item",
-//                                      message: nil,
-//                                      preferredStyle: .alert)
-//
-//        let save = UIAlertAction(title: "Save",
-//                                       style: .default) {
-//                                        [unowned self] action in
-//
-//                                        guard let textField = alert.textFields?.first,
-//                                            let itemToSave = textField.text else {
-//                                                return
-//                                        }
-//
-//                                        DAOItem.sharedInstance.addItem(withName: itemToSave)
-//                                        self.items = DAOItem.sharedInstance.fetchItems()
-//                                        self.tableView.reloadData()
-//        }
-//
-//        let cancel = UIAlertAction(title: "Cancel",
-//                                         style: .cancel)
-//
-//        alert.addTextField()
-//
-//        alert.addAction(cancel)
-//        alert.addAction(save)
-//
-//        present(alert, animated: true)
-    }
-    
-    // MARK: - Table view data source
+    // MARK: - DataSource
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -88,23 +46,43 @@ class GroceriesListTableViewController: UITableViewController {
         
         return cell
     }
-
+    
+    // MARK: - Delegate
+    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete Item from Core Data
             DAOItem.sharedInstance.deleteItem(item: self.items[indexPath.row])
-            // Delete Item from itens array
             self.items.remove(at: indexPath.row)
-            // Delete the row from the data source
             self.tableView.deleteRows(at: [indexPath], with: .fade)
-            
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     
+    //MARK: - Methods
+    func updateDatasource(){
+        // Fetch the Itens in Core Data and reload table view
+        self.items = DAOItem.sharedInstance.fetchItems()
+        self.tableView.reloadData()
+    }
+    
+    //MARK: - Actions
+    @IBAction func addItem(_ sender: Any) {
+        let alert = UIAlertController(title: "New Item", message: nil, preferredStyle: .alert)
+        let save = UIAlertAction(title: "Save", style: .default) { [unowned self] action in
+            guard let textField = alert.textFields?.first,
+                let itemToSave = textField.text else {
+                    return
+            }
+            DAOItem.sharedInstance.addItem(withName: itemToSave)
+            self.updateDatasource()
+        }
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addTextField()
+        alert.addAction(cancel)
+        alert.addAction(save)
+        present(alert, animated: true)
+    }
 }
