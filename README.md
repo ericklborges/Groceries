@@ -1,2 +1,2 @@
 # Groceries
-Today Extension + Spotlight Index Exemple
+Today Extension + Spotlight Index Example
